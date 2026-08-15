@@ -1,0 +1,258 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* TIMELESS-inspired minimal luxury theme */
+:root {
+  /* Light theme - Editorial warm whites */
+  --background: 250 250 249; /* stone-50 - warm off-white */
+  --foreground: 28 25 23; /* stone-900 - rich charcoal */
+  --card: 255 255 255; /* pure white cards */
+  --card-foreground: 28 25 23;
+  --popover: 255 255 255;
+  --popover-foreground: 28 25 23;
+  --primary: 28 25 23; /* charcoal primary */
+  --primary-foreground: 250 250 249;
+  --secondary: 245 245 244; /* stone-100 */
+  --secondary-foreground: 28 25 23;
+  --muted: 245 245 244;
+  --muted-foreground: 120 113 108; /* stone-500 */
+  --accent: 245 245 244;
+  --accent-foreground: 28 25 23;
+  --destructive: 239 68 68; /* red-500 */
+  --destructive-foreground: 255 255 255;
+  --border: 231 229 228; /* stone-200 - minimal borders */
+  --input: 245 245 244;
+  --ring: 28 25 23;
+  --chart-1: 220 38 38;
+  --chart-2: 234 179 8;
+  --chart-3: 34 197 94;
+  --chart-4: 59 130 246;
+  --chart-5: 168 85 247;
+  --radius: 0.75rem; /* Generous rounded corners */
+  
+  /* Custom semantic colors */
+  --success: 34 197 94; /* emerald-500 */
+  --warning: 234 179 8; /* yellow-500 */
+  --info: 59 130 246; /* blue-500 */
+}
+
+.dark {
+  /* Dark theme - Premium blacks with subtle warmth */
+  --background: 12 10 9; /* stone-950 - near black */
+  --foreground: 250 250 249; /* stone-50 - warm white */
+  --card: 28 25 23; /* stone-900 - dark charcoal cards */
+  --card-foreground: 250 250 249;
+  --popover: 28 25 23;
+  --popover-foreground: 250 250 249;
+  --primary: 250 250 249; /* light primary in dark mode */
+  --primary-foreground: 28 25 23;
+  --secondary: 41 37 36; /* stone-800 */
+  --secondary-foreground: 250 250 249;
+  --muted: 41 37 36;
+  --muted-foreground: 168 162 158; /* stone-400 */
+  --accent: 41 37 36;
+  --accent-foreground: 250 250 249;
+  --destructive: 239 68 68;
+  --destructive-foreground: 255 255 255;
+  --border: 41 37 36; /* stone-800 - subtle borders */
+  --input: 41 37 36;
+  --ring: 250 250 249;
+  --chart-1: 220 38 38;
+  --chart-2: 234 179 8;
+  --chart-3: 34 197 94;
+  --chart-4: 59 130 246;
+  --chart-5: 168 85 247;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Typography scale inspired by editorial design */
+@layer base {
+  .text-display {
+    @apply text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-none;
+  }
+  .text-headline {
+    @apply text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight;
+  }
+  .text-title {
+    @apply text-2xl md:text-3xl font-medium tracking-tight;
+  }
+  .text-body-large {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+  .text-body {
+    @apply text-base leading-relaxed;
+  }
+  .text-caption {
+    @apply text-sm text-muted-foreground;
+  }
+}
+
+/* Premium interaction states */
+@layer components {
+  .interactive-element {
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  .hover-lift {
+    @apply hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200;
+  }
+  
+  .focus-ring {
+    @apply focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+/* Smooth animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+}
+
+/* Custom scrollbar - minimal and elegant */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-primary text-primary-foreground;
+}
+
+/* Remove default button focus styles in favor of our custom ones */
+button:focus {
+  outline: none;
+}
+
+/* Enhance readability with better line heights */
+p, li, blockquote {
+  @apply leading-relaxed;
+}
+
+/* Minimal glassmorphism for floating elements */
+.glass {
+  @apply backdrop-blur-md bg-white/80 dark:bg-stone-900/80 border border-border/50;
+}
+
+/* Premium shadow system */
+.shadow-minimal {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.shadow-elegant {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Dark mode shadow adjustments */
+.dark .shadow-minimal {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+}
+
+.dark .shadow-soft {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+}
+
+.dark .shadow-elegant {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+}
