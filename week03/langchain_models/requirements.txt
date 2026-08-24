@@ -19,6 +19,10 @@ langchain-huggingface
 transformers
 huggingface-hub
 
+# Groq & XAI Integration
+langchain-groq
+langchain-xai
+
 # Environment Variable Management
 python-dotenv
 
