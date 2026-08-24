@@ -1,7 +1,13 @@
 import os
+import sys
+import logging
+import warnings
 from pathlib import Path
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
+
+warnings.filterwarnings("ignore")
+logging.disable(logging.WARNING)
 
 env_path = Path(__file__).resolve().parents[1] / ".env"
 load_dotenv(dotenv_path=env_path)
@@ -14,7 +20,7 @@ if not api_key:
 else:
     try:
         model = ChatGoogleGenerativeAI(
-            model="gemini-1.5-flash",
+            model="gemini-2.0-flash",
             google_api_key=api_key,
             temperature=0.7
         )
@@ -22,4 +28,5 @@ else:
         print(result.content)
     except Exception as e:
         print(f"❌ Error invoking Gemini Chat model: {e}")
+
 
